@@ -1,0 +1,218 @@
+<l7:Bundle xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management">
+            <l7:References>
+                <l7:Item>
+                    <l7:Name>AkamaiTest</l7:Name>
+                    <l7:Id>16a33dd9c031c1e03c7af1d80474ba0a</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                    <l7:TimeStamp>2022-07-24T10:55:04.633Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Service id="16a33dd9c031c1e03c7af1d80474ba0a" version="2">
+                            <l7:ServiceDetail folderId="0000000000000000ffffffffffffec76" id="16a33dd9c031c1e03c7af1d80474ba0a" version="2">
+                                <l7:Name>AkamaiTest</l7:Name>
+                                <l7:Enabled>true</l7:Enabled>
+                                <l7:ServiceMappings>
+                                    <l7:HttpMapping>
+                                        <l7:UrlPattern>/niklas/akamai/test</l7:UrlPattern>
+                                        <l7:Verbs>
+                                            <l7:Verb>GET</l7:Verb>
+                                            <l7:Verb>POST</l7:Verb>
+                                            <l7:Verb>PUT</l7:Verb>
+                                            <l7:Verb>DELETE</l7:Verb>
+                                        </l7:Verbs>
+                                    </l7:HttpMapping>
+                                </l7:ServiceMappings>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>true</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="internal">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="policyRevision">
+                                        <l7:LongValue>3</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="tracingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="wssProcessingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:ServiceDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy" version="2">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;YXRva2Vu&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;access_token&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;YW5vdGhlcnRva2Vu&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;client_token&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;YXNlY3JldA==&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;client_secret&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;MTIzNDU2&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;nonce&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;MjAyMjA2MjFUMTc6MzE6MDIrMDAwMA==&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;timestamp&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;R0VUCWh0dHBzCTE3Mi4xNi4xOC4xMDk6ODQ0MwkvbmlrbGFzL2FrYW1haS90ZXN0CQkJRUcxLUhNQUMtU0hBMjU2IGNsaWVudF90b2tlbj1hbm90aGVydG9rZW47YWNjZXNzX3Rva2VuPWF0b2tlbjt0aW1lc3RhbXA9MjAyMjA2MjFUMTc6MzE6MDIrMDAwMDtub25jZT0xMjM0NTY7&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;authheaderData&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;ew0KICAgICJ0ZXh0IjoiSGVsbG9Xb3JsZCINCn0=&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;requestpayload&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:GenerateSecurityHash&gt;
+                &lt;L7p:Algorithm stringValue=&quot;SHA-256&quot;/&gt;
+                &lt;L7p:AssertionComment assertionComment=&quot;included&quot;&gt;
+                    &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                            &lt;L7p:value stringValue=&quot;signingkey&quot;/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:AssertionComment&gt;
+                &lt;L7p:Base64Data stringValue=&quot;JHtyZXF1ZXN0cGF5bG9hZH0=&quot;/&gt;
+                &lt;L7p:LineBreak lineBreak=&quot;CR-LF&quot;/&gt;
+                &lt;L7p:TargetOutputVariable stringValue=&quot;payload&quot;/&gt;
+            &lt;/L7p:GenerateSecurityHash&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:GenerateSecurityHash&gt;
+                    &lt;L7p:Algorithm stringValue=&quot;HMAC-SHA256&quot;/&gt;
+                    &lt;L7p:AssertionComment assertionComment=&quot;included&quot;&gt;
+                        &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                                &lt;L7p:value stringValue=&quot;signingkey&quot;/&gt;
+                            &lt;/L7p:entry&gt;
+                        &lt;/L7p:Properties&gt;
+                    &lt;/L7p:AssertionComment&gt;
+                    &lt;L7p:Base64Data stringValue=&quot;JHt0aW1lc3RhbXB9&quot;/&gt;
+                    &lt;L7p:KeyText stringValue=&quot;${client_secret}&quot;/&gt;
+                    &lt;L7p:LineBreak lineBreak=&quot;CR-LF&quot;/&gt;
+                    &lt;L7p:TargetOutputVariable stringValue=&quot;signingkey&quot;/&gt;
+                &lt;/L7p:GenerateSecurityHash&gt;
+                &lt;L7p:EncodeDecode&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:SourceVariableName stringValue=&quot;signingkey&quot;/&gt;
+                    &lt;L7p:TargetDataType variableDataType=&quot;string&quot;/&gt;
+                    &lt;L7p:TargetVariableName stringValue=&quot;signingkeyEncoded&quot;/&gt;
+                    &lt;L7p:TransformType transformType=&quot;BASE64_ENCODE&quot;/&gt;
+                &lt;/L7p:EncodeDecode&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:EncodeDecode&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:SourceVariableName stringValue=&quot;authheaderData&quot;/&gt;
+                    &lt;L7p:TargetDataType variableDataType=&quot;string&quot;/&gt;
+                    &lt;L7p:TargetVariableName stringValue=&quot;authheaderData&quot;/&gt;
+                    &lt;L7p:TransformType transformType=&quot;BASE64_ENCODE&quot;/&gt;
+                &lt;/L7p:EncodeDecode&gt;
+                &lt;L7p:GenerateSecurityHash&gt;
+                    &lt;L7p:Algorithm stringValue=&quot;HMAC-SHA256&quot;/&gt;
+                    &lt;L7p:AssertionComment assertionComment=&quot;included&quot;&gt;
+                        &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                                &lt;L7p:value stringValue=&quot;signature&quot;/&gt;
+                            &lt;/L7p:entry&gt;
+                        &lt;/L7p:Properties&gt;
+                    &lt;/L7p:AssertionComment&gt;
+                    &lt;L7p:Base64Data stringValue=&quot;JHthdXRoaGVhZGVyRGF0YX0=&quot;/&gt;
+                    &lt;L7p:KeyText stringValue=&quot;${signingkey}&quot;/&gt;
+                    &lt;L7p:LineBreak lineBreak=&quot;CR-LF&quot;/&gt;
+                    &lt;L7p:TargetOutputVariable stringValue=&quot;authheaderSignature&quot;/&gt;
+                &lt;/L7p:GenerateSecurityHash&gt;
+                &lt;L7p:EncodeDecode&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:SourceVariableName stringValue=&quot;authheaderSignature&quot;/&gt;
+                    &lt;L7p:TargetDataType variableDataType=&quot;string&quot;/&gt;
+                    &lt;L7p:TargetVariableName stringValue=&quot;authheaderSignatureEncoded&quot;/&gt;
+                    &lt;L7p:TransformType transformType=&quot;BASE64_ENCODE&quot;/&gt;
+                &lt;/L7p:EncodeDecode&gt;
+            &lt;/wsp:All&gt;
+        &lt;/wsp:All&gt;
+        &lt;wsp:All L7p:Enabled=&quot;false&quot; wsp:Usage=&quot;Required&quot;&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;JHtyZXF1ZXN0Lmh0dHAuaGVhZGVyLmF1dGhvcml6YXRpb259&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;authheader&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:Split&gt;
+                &lt;L7p:InputVariable stringValue=&quot;authheader&quot;/&gt;
+                &lt;L7p:OutputVariable stringValue=&quot;authheader&quot;/&gt;
+                &lt;L7p:SplitPattern stringValue=&quot;;&quot;/&gt;
+            &lt;/L7p:Split&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;JHthdXRoaGVhZGVyWzRdfQ==&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;signature&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:Split&gt;
+                &lt;L7p:InputVariable stringValue=&quot;signature&quot;/&gt;
+                &lt;L7p:OutputVariable stringValue=&quot;signatureparts&quot;/&gt;
+                &lt;L7p:SplitPattern stringValue=&quot;=&quot;/&gt;
+            &lt;/L7p:Split&gt;
+            &lt;L7p:Regex&gt;
+                &lt;L7p:AutoTarget booleanValue=&quot;false&quot;/&gt;
+                &lt;L7p:CaptureVar stringValue=&quot;signatureparts&quot;/&gt;
+                &lt;L7p:OtherTargetMessageVariable stringValue=&quot;signature&quot;/&gt;
+                &lt;L7p:Regex stringValue=&quot;signature=(.*)&quot;/&gt;
+                &lt;L7p:Replacement stringValue=&quot;&quot;/&gt;
+                &lt;L7p:Target target=&quot;OTHER&quot;/&gt;
+            &lt;/L7p:Regex&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;JHtzaWduYXR1cmVwYXJ0c1sxXX0=&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;signatureEncoded&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:EncodeDecode&gt;
+                &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                &lt;L7p:SourceVariableName stringValue=&quot;signatureEncoded&quot;/&gt;
+                &lt;L7p:TargetDataType variableDataType=&quot;string&quot;/&gt;
+                &lt;L7p:TargetVariableName stringValue=&quot;signatureDecoded&quot;/&gt;
+                &lt;L7p:TransformType transformType=&quot;BASE64_ENCODE&quot;/&gt;
+            &lt;/L7p:EncodeDecode&gt;
+        &lt;/wsp:All&gt;
+        &lt;L7p:HardcodedResponse&gt;
+            &lt;L7p:Base64ResponseBody stringValue=&quot;JHtyZXF1ZXN0Lmh0dHAuaGVhZGVyLmF1dGhvcml6YXRpb259Cgoke3NpZ25pbmdrZXl9CiR7c2lnbmluZ2tleUVuY29kZWR9Cgoke2F1dGhoZWFkZXJTaWduYXR1cmV9CiR7YXV0aGhlYWRlclNpZ25hdHVyZUVuY29kZWR9Cgoke3BheWxvYWR9Cgoke2F1dGhoZWFkZXJEYXRhfQ==&quot;/&gt;
+            &lt;L7p:ResponseContentType stringValue=&quot;text/plain; charset=UTF-8&quot;/&gt;
+        &lt;/L7p:HardcodedResponse&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Ich bin eine Aenderung&quot;/&gt;
+            &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Eine zweite Aenderung&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Service>
+                    </l7:Resource>
+                </l7:Item>
+            </l7:References>
+            <l7:Mappings>
+                <l7:Mapping action="NewOrExisting" srcId="0000000000000000ffffffffffffec76" srcUri="https://14f739f57154:8444/restman/1.0/folders/0000000000000000ffffffffffffec76" type="FOLDER">
+                    <l7:Properties>
+                        <l7:Property key="FailOnNew">
+                            <l7:BooleanValue>true</l7:BooleanValue>
+                        </l7:Property>
+                    </l7:Properties>
+                </l7:Mapping>
+                <l7:Mapping action="NewOrExisting" srcId="16a33dd9c031c1e03c7af1d80474ba0a" srcUri="https://14f739f57154:8444/restman/1.0/services/16a33dd9c031c1e03c7af1d80474ba0a" type="SERVICE"/>
+            </l7:Mappings>
+        </l7:Bundle>

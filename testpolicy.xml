@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <wsp:All wsp:Usage="Required">
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="YXRva2Vu"/>
+                    <L7p:VariableToSet stringValue="access_token"/>
+                </L7p:SetVariable>
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="YW5vdGhlcnRva2Vu"/>
+                    <L7p:VariableToSet stringValue="client_token"/>
+                </L7p:SetVariable>
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="YXNlY3JldA=="/>
+                    <L7p:VariableToSet stringValue="client_secret"/>
+                </L7p:SetVariable>
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="MTIzNDU2"/>
+                    <L7p:VariableToSet stringValue="nonce"/>
+                </L7p:SetVariable>
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="MjAyMjA2MjFUMTc6MzE6MDIrMDAwMA=="/>
+                    <L7p:VariableToSet stringValue="timestamp"/>
+                </L7p:SetVariable>
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="R0VUCWh0dHBzCTE3Mi4xNi4xOC4xMDk6ODQ0MwkvbmlrbGFzL2FrYW1haS90ZXN0CQkJRUcxLUhNQUMtU0hBMjU2IGNsaWVudF90b2tlbj1hbm90aGVydG9rZW47YWNjZXNzX3Rva2VuPWF0b2tlbjt0aW1lc3RhbXA9MjAyMjA2MjFUMTc6MzE6MDIrMDAwMDtub25jZT0xMjM0NTY7"/>
+                    <L7p:VariableToSet stringValue="authheaderData"/>
+                </L7p:SetVariable>
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="ew0KICAgICJ0ZXh0IjoiSGVsbG9Xb3JsZCINCn0="/>
+                    <L7p:VariableToSet stringValue="requestpayload"/>
+                </L7p:SetVariable>
+                <L7p:GenerateSecurityHash>
+                    <L7p:Algorithm stringValue="SHA-256"/>
+                    <L7p:AssertionComment assertionComment="included">
+                        <L7p:Properties mapValue="included">
+                            <L7p:entry>
+                                <L7p:key stringValue="RIGHT.COMMENT"/>
+                                <L7p:value stringValue="signingkey"/>
+                            </L7p:entry>
+                        </L7p:Properties>
+                    </L7p:AssertionComment>
+                    <L7p:Base64Data stringValue="JHtyZXF1ZXN0cGF5bG9hZH0="/>
+                    <L7p:LineBreak lineBreak="CR-LF"/>
+                    <L7p:TargetOutputVariable stringValue="payload"/>
+                </L7p:GenerateSecurityHash>
+                <wsp:All wsp:Usage="Required">
+                    <L7p:GenerateSecurityHash>
+                        <L7p:Algorithm stringValue="HMAC-SHA256"/>
+                        <L7p:AssertionComment assertionComment="included">
+                            <L7p:Properties mapValue="included">
+                                <L7p:entry>
+                                    <L7p:key stringValue="RIGHT.COMMENT"/>
+                                    <L7p:value stringValue="signingkey"/>
+                                </L7p:entry>
+                            </L7p:Properties>
+                        </L7p:AssertionComment>
+                        <L7p:Base64Data stringValue="JHt0aW1lc3RhbXB9"/>
+                        <L7p:KeyText stringValue="${client_secret}"/>
+                        <L7p:LineBreak lineBreak="CR-LF"/>
+                        <L7p:TargetOutputVariable stringValue="signingkey"/>
+                    </L7p:GenerateSecurityHash>
+                    <L7p:EncodeDecode>
+                        <L7p:Enabled booleanValue="false"/>
+                        <L7p:SourceVariableName stringValue="signingkey"/>
+                        <L7p:TargetDataType variableDataType="string"/>
+                        <L7p:TargetVariableName stringValue="signingkeyEncoded"/>
+                        <L7p:TransformType transformType="BASE64_ENCODE"/>
+                    </L7p:EncodeDecode>
+                </wsp:All>
+                <wsp:All wsp:Usage="Required">
+                    <L7p:EncodeDecode>
+                        <L7p:Enabled booleanValue="false"/>
+                        <L7p:SourceVariableName stringValue="authheaderData"/>
+                        <L7p:TargetDataType variableDataType="string"/>
+                        <L7p:TargetVariableName stringValue="authheaderData"/>
+                        <L7p:TransformType transformType="BASE64_ENCODE"/>
+                    </L7p:EncodeDecode>
+                    <L7p:GenerateSecurityHash>
+                        <L7p:Algorithm stringValue="HMAC-SHA256"/>
+                        <L7p:AssertionComment assertionComment="included">
+                            <L7p:Properties mapValue="included">
+                                <L7p:entry>
+                                    <L7p:key stringValue="RIGHT.COMMENT"/>
+                                    <L7p:value stringValue="signature"/>
+                                </L7p:entry>
+                            </L7p:Properties>
+                        </L7p:AssertionComment>
+                        <L7p:Base64Data stringValue="JHthdXRoaGVhZGVyRGF0YX0="/>
+                        <L7p:KeyText stringValue="${signingkey}"/>
+                        <L7p:LineBreak lineBreak="CR-LF"/>
+                        <L7p:TargetOutputVariable stringValue="authheaderSignature"/>
+                    </L7p:GenerateSecurityHash>
+                    <L7p:EncodeDecode>
+                        <L7p:Enabled booleanValue="false"/>
+                        <L7p:SourceVariableName stringValue="authheaderSignature"/>
+                        <L7p:TargetDataType variableDataType="string"/>
+                        <L7p:TargetVariableName stringValue="authheaderSignatureEncoded"/>
+                        <L7p:TransformType transformType="BASE64_ENCODE"/>
+                    </L7p:EncodeDecode>
+                </wsp:All>
+            </wsp:All>
+            <wsp:All L7p:Enabled="false" wsp:Usage="Required">
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="JHtyZXF1ZXN0Lmh0dHAuaGVhZGVyLmF1dGhvcml6YXRpb259"/>
+                    <L7p:VariableToSet stringValue="authheader"/>
+                </L7p:SetVariable>
+                <L7p:Split>
+                    <L7p:InputVariable stringValue="authheader"/>
+                    <L7p:OutputVariable stringValue="authheader"/>
+                    <L7p:SplitPattern stringValue=";"/>
+                </L7p:Split>
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="JHthdXRoaGVhZGVyWzRdfQ=="/>
+                    <L7p:VariableToSet stringValue="signature"/>
+                </L7p:SetVariable>
+                <L7p:Split>
+                    <L7p:InputVariable stringValue="signature"/>
+                    <L7p:OutputVariable stringValue="signatureparts"/>
+                    <L7p:SplitPattern stringValue="="/>
+                </L7p:Split>
+                <L7p:Regex>
+                    <L7p:AutoTarget booleanValue="false"/>
+                    <L7p:CaptureVar stringValue="signatureparts"/>
+                    <L7p:OtherTargetMessageVariable stringValue="signature"/>
+                    <L7p:Regex stringValue="signature=(.*)"/>
+                    <L7p:Replacement stringValue=""/>
+                    <L7p:Target target="OTHER"/>
+                </L7p:Regex>
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="JHtzaWduYXR1cmVwYXJ0c1sxXX0="/>
+                    <L7p:VariableToSet stringValue="signatureEncoded"/>
+                </L7p:SetVariable>
+                <L7p:EncodeDecode>
+                    <L7p:Enabled booleanValue="false"/>
+                    <L7p:SourceVariableName stringValue="signatureEncoded"/>
+                    <L7p:TargetDataType variableDataType="string"/>
+                    <L7p:TargetVariableName stringValue="signatureDecoded"/>
+                    <L7p:TransformType transformType="BASE64_ENCODE"/>
+                </L7p:EncodeDecode>
+            </wsp:All>
+            <L7p:HardcodedResponse>
+                <L7p:Base64ResponseBody stringValue="JHtyZXF1ZXN0Lmh0dHAuaGVhZGVyLmF1dGhvcml6YXRpb259Cgoke3NpZ25pbmdrZXl9CiR7c2lnbmluZ2tleUVuY29kZWR9Cgoke2F1dGhoZWFkZXJTaWduYXR1cmV9CiR7YXV0aGhlYWRlclNpZ25hdHVyZUVuY29kZWR9Cgoke3BheWxvYWR9Cgoke2F1dGhoZWFkZXJEYXRhfQ=="/>
+                <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+            </L7p:HardcodedResponse>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="Ich bin eine Aenderung"/>
+            </L7p:CommentAssertion>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

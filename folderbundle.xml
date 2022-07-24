@@ -1,0 +1,1473 @@
+<l7:Bundle xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management">
+            <l7:References>
+                <l7:Item>
+                    <l7:Name>Training_20220208</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd0263</l7:Id>
+                    <l7:Type>FOLDER</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.965Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Folder folderId="0000000000000000ffffffffffffec76" id="2af6a6380fe08d3c626aad4851cd0263" version="0">
+                            <l7:Name>Training_20220208</l7:Name>
+                        </l7:Folder>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>Backend</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd09fa</l7:Id>
+                    <l7:Type>FOLDER</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.965Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Folder folderId="2af6a6380fe08d3c626aad4851cd0263" id="2af6a6380fe08d3c626aad4851cd09fa" version="0">
+                            <l7:Name>Backend</l7:Name>
+                        </l7:Folder>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>Internal Identity Provider</l7:Name>
+                    <l7:Id>0000000000000000fffffffffffffffe</l7:Id>
+                    <l7:Type>ID_PROVIDER_CONFIG</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.966Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:IdentityProvider id="0000000000000000fffffffffffffffe" version="0">
+                            <l7:Name>Internal Identity Provider</l7:Name>
+                            <l7:IdentityProviderType>Internal</l7:IdentityProviderType>
+                        </l7:IdentityProvider>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>MyTestService</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd0329</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.973Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Service id="2af6a6380fe08d3c626aad4851cd0329" version="2">
+                            <l7:ServiceDetail folderId="2af6a6380fe08d3c626aad4851cd09fa" id="2af6a6380fe08d3c626aad4851cd0329" version="2">
+                                <l7:Name>MyTestService</l7:Name>
+                                <l7:Enabled>false</l7:Enabled>
+                                <l7:ServiceMappings>
+                                    <l7:HttpMapping>
+                                        <l7:UrlPattern>/my/test/service</l7:UrlPattern>
+                                        <l7:Verbs>
+                                            <l7:Verb>GET</l7:Verb>
+                                            <l7:Verb>POST</l7:Verb>
+                                            <l7:Verb>PUT</l7:Verb>
+                                            <l7:Verb>DELETE</l7:Verb>
+                                        </l7:Verbs>
+                                    </l7:HttpMapping>
+                                </l7:ServiceMappings>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>true</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="internal">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="policyRevision">
+                                        <l7:LongValue>1</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="tracingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="wssProcessingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:ServiceDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy" version="0">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;L7p:CustomizeErrorResponse&gt;
+            &lt;L7p:Content stringValueReference=&quot;inline&quot;&gt;&lt;![CDATA[{
+   &quot;error&quot;:&quot;Please use HTTPS&quot;
+}]]&gt;&lt;/L7p:Content&gt;
+            &lt;L7p:ContentType stringValue=&quot;application/json; charset=UTF-8&quot;/&gt;
+            &lt;L7p:ExtraHeaders nameValuePairArray=&quot;included&quot;&gt;
+                &lt;L7p:item nameValuePair=&quot;included&quot;&gt;
+                    &lt;L7p:Key stringValue=&quot;test&quot;/&gt;
+                    &lt;L7p:Value stringValue=&quot;this has no meaning&quot;/&gt;
+                &lt;/L7p:item&gt;
+            &lt;/L7p:ExtraHeaders&gt;
+            &lt;L7p:HttpStatus stringValue=&quot;400&quot;/&gt;
+        &lt;/L7p:CustomizeErrorResponse&gt;
+        &lt;L7p:SslAssertion&gt;
+            &lt;L7p:AssertionComment assertionComment=&quot;included&quot;&gt;
+                &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                        &lt;L7p:value stringValue=&quot;This is a comment&quot;/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Properties&gt;
+            &lt;/L7p:AssertionComment&gt;
+        &lt;/L7p:SslAssertion&gt;
+        &lt;L7p:HttpBasic/&gt;
+        &lt;L7p:Authentication&gt;
+            &lt;L7p:IdentityProviderOid goidValue=&quot;0000000000000000fffffffffffffffe&quot;/&gt;
+        &lt;/L7p:Authentication&gt;
+        &lt;L7p:CustomizeErrorResponse&gt;
+            &lt;L7p:Content stringValueReference=&quot;inline&quot;&gt;&lt;![CDATA[{
+   &quot;error&quot;:&quot;Invalid query&quot;
+}]]&gt;&lt;/L7p:Content&gt;
+            &lt;L7p:ContentType stringValue=&quot;application/json; charset=UTF-8&quot;/&gt;
+            &lt;L7p:ExtraHeaders nameValuePairArray=&quot;included&quot;&gt;
+                &lt;L7p:item nameValuePair=&quot;included&quot;&gt;
+                    &lt;L7p:Key stringValue=&quot;test&quot;/&gt;
+                    &lt;L7p:Value stringValue=&quot;this has no meaning&quot;/&gt;
+                &lt;/L7p:item&gt;
+            &lt;/L7p:ExtraHeaders&gt;
+            &lt;L7p:HttpStatus stringValue=&quot;400&quot;/&gt;
+        &lt;/L7p:CustomizeErrorResponse&gt;
+        &lt;L7p:ComparisonAssertion&gt;
+            &lt;L7p:Expression1 stringValue=&quot;${request.url.query}&quot;/&gt;
+            &lt;L7p:Expression2 stringValue=&quot;?name=Niklas&quot;/&gt;
+            &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                &lt;L7p:item binary=&quot;included&quot;&gt;
+                    &lt;L7p:RightValue stringValue=&quot;?name=Niklas&quot;/&gt;
+                &lt;/L7p:item&gt;
+            &lt;/L7p:Predicates&gt;
+        &lt;/L7p:ComparisonAssertion&gt;
+        &lt;L7p:HardcodedResponse&gt;
+            &lt;L7p:Base64ResponseBody stringValue=&quot;ewogICAibWVzc2FnZSI6IlN1Y2Nlc3NmdWxsIExvZ2luIHdpdGggaW50ZXJuYWwgaWRwIG9uIG15IHRlc3Qgc2VydmljZSIsCiAgICJVc2VkUXVlcnkiOiIke3JlcXVlc3QudXJsLnF1ZXJ5fSIKfQ==&quot;/&gt;
+            &lt;L7p:ResponseContentType stringValue=&quot;application/json; charset=UTF-8&quot;/&gt;
+        &lt;/L7p:HardcodedResponse&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Service>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>XMLService</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd0a44</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.977Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Service id="2af6a6380fe08d3c626aad4851cd0a44" version="2">
+                            <l7:ServiceDetail folderId="2af6a6380fe08d3c626aad4851cd09fa" id="2af6a6380fe08d3c626aad4851cd0a44" version="2">
+                                <l7:Name>XMLService</l7:Name>
+                                <l7:Enabled>true</l7:Enabled>
+                                <l7:ServiceMappings>
+                                    <l7:HttpMapping>
+                                        <l7:UrlPattern>/my/xml/service</l7:UrlPattern>
+                                        <l7:Verbs>
+                                            <l7:Verb>GET</l7:Verb>
+                                            <l7:Verb>POST</l7:Verb>
+                                            <l7:Verb>PUT</l7:Verb>
+                                            <l7:Verb>DELETE</l7:Verb>
+                                        </l7:Verbs>
+                                    </l7:HttpMapping>
+                                </l7:ServiceMappings>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>true</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="internal">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="policyRevision">
+                                        <l7:LongValue>1</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="tracingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="wssProcessingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:ServiceDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy" version="0">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;L7p:RequestXpathAssertion&gt;
+            &lt;L7p:VariablePrefix stringValue=&quot;name&quot;/&gt;
+            &lt;L7p:XpathExpression xpathExpressionValue=&quot;included&quot;&gt;
+                &lt;L7p:Expression stringValue=&quot;/soapenv:Envelope/soapenv:Body/name&quot;/&gt;
+                &lt;L7p:Namespaces mapValue=&quot;included&quot;&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue=&quot;s&quot;/&gt;
+                        &lt;L7p:value stringValue=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;/&gt;
+                    &lt;/L7p:entry&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue=&quot;soapenv&quot;/&gt;
+                        &lt;L7p:value stringValue=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Namespaces&gt;
+                &lt;L7p:XpathVersion xpathVersion=&quot;XPATH_1_0&quot;/&gt;
+            &lt;/L7p:XpathExpression&gt;
+        &lt;/L7p:RequestXpathAssertion&gt;
+        &lt;L7p:RequestXpathAssertion&gt;
+            &lt;L7p:VariablePrefix stringValue=&quot;role&quot;/&gt;
+            &lt;L7p:XpathExpression xpathExpressionValue=&quot;included&quot;&gt;
+                &lt;L7p:Expression stringValue=&quot;/soapenv:Envelope/soapenv:Body/role&quot;/&gt;
+                &lt;L7p:Namespaces mapValue=&quot;included&quot;&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue=&quot;s&quot;/&gt;
+                        &lt;L7p:value stringValue=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;/&gt;
+                    &lt;/L7p:entry&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue=&quot;soapenv&quot;/&gt;
+                        &lt;L7p:value stringValue=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Namespaces&gt;
+                &lt;L7p:XpathVersion xpathVersion=&quot;XPATH_1_0&quot;/&gt;
+            &lt;/L7p:XpathExpression&gt;
+        &lt;/L7p:RequestXpathAssertion&gt;
+        &lt;L7p:HardcodedResponse&gt;
+            &lt;L7p:Base64ResponseBody stringValue=&quot;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHNvYXBlbnY6RW52ZWxvcGUgeG1sbnM6c29hcGVudj0iaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbnZlbG9wZS8iPgogICAgPHNvYXBlbnY6Qm9keT4KCSAgICA8dHlwZT5yb2xlY2hlY2s8L3R5cGU+CiAgICAgICAgICAgIDxhdHRyaWJ1dGVzPgoJCQk8dGV4dD5uYW1lPC90ZXh0PgoJCQk8dGV4dD4ke25hbWUucmVzdWx0fTwvdGV4dD4KCQkJPHRleHQ+YWRtaW48L3RleHQ+CgkJCTx0ZXh0PiR7cm9sZS5yZXN1bHR9PC90ZXh0PgoJCTwvYXR0cmlidXRlcz4KICAgIDwvc29hcGVudjpCb2R5Pgo8L3NvYXBlbnY6RW52ZWxvcGU+&quot;/&gt;
+        &lt;/L7p:HardcodedResponse&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Service>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>testgw_samplepolicy</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd0f84</l7:Id>
+                    <l7:Type>POLICY</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.981Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Policy guid="42ba4571-280e-49fd-83c7-113599f52f67" id="2af6a6380fe08d3c626aad4851cd0f84" version="0">
+                            <l7:PolicyDetail folderId="2af6a6380fe08d3c626aad4851cd0263" guid="42ba4571-280e-49fd-83c7-113599f52f67" id="2af6a6380fe08d3c626aad4851cd0f84" version="0">
+                                <l7:Name>testgw_samplepolicy</l7:Name>
+                                <l7:PolicyType>Include</l7:PolicyType>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="revision">
+                                        <l7:LongValue>1</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:PolicyDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Policy Fragment: samplepolicy&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:SetVariable&gt;
+            &lt;L7p:Base64Expression stringValue=&quot;SGVsbG9Xb3JsZCAtIE15SGVsbG8=&quot;/&gt;
+            &lt;L7p:VariableToSet stringValue=&quot;sample&quot;/&gt;
+        &lt;/L7p:SetVariable&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Policy>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>training.configuration</l7:Name>
+                    <l7:Id>eb93389fe3802bf099cf9d8cff80e0c8</l7:Id>
+                    <l7:Type>CLUSTER_PROPERTY</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.981Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:ClusterProperty id="eb93389fe3802bf099cf9d8cff80e0c8" version="0">
+                            <l7:Name>training.configuration</l7:Name>
+                            <l7:Value>{
+  PROD Settings
+}</l7:Value>
+                        </l7:ClusterProperty>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>testgw_loadServiceConfiguration</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd0fc9</l7:Id>
+                    <l7:Type>POLICY</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.992Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Policy guid="21f52f72-1809-4105-9379-55fd6c09964b" id="2af6a6380fe08d3c626aad4851cd0fc9" version="0">
+                            <l7:PolicyDetail folderId="2af6a6380fe08d3c626aad4851cd0263" guid="21f52f72-1809-4105-9379-55fd6c09964b" id="2af6a6380fe08d3c626aad4851cd0fc9" version="0">
+                                <l7:Name>testgw_loadServiceConfiguration</l7:Name>
+                                <l7:PolicyType>Include</l7:PolicyType>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="revision">
+                                        <l7:LongValue>1</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:PolicyDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+            &lt;L7p:CustomizeErrorResponse&gt;
+                &lt;L7p:Content stringValueReference=&quot;inline&quot;&gt;&lt;![CDATA[{
+   &quot;error&quot;:&quot;Internal configuration error. Please contact the administrator&quot;
+}]]&gt;&lt;/L7p:Content&gt;
+                &lt;L7p:ContentType stringValue=&quot;application/json; charset=UTF-8&quot;/&gt;
+                &lt;L7p:ExtraHeaders nameValuePairArray=&quot;included&quot;/&gt;
+            &lt;/L7p:CustomizeErrorResponse&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;JHtnYXRld2F5LnRyYWluaW5nLmNvbmZpZ3VyYXRpb259&quot;/&gt;
+                &lt;L7p:ContentType stringValue=&quot;application/json; charset=utf-8&quot;/&gt;
+                &lt;L7p:DataType variableDataType=&quot;message&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;configuration&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:EvaluateJsonPathExpressionV2&gt;
+                    &lt;L7p:Expression stringValue=&quot;$.serviceurl&quot;/&gt;
+                    &lt;L7p:OtherTargetMessageVariable stringValue=&quot;configuration&quot;/&gt;
+                    &lt;L7p:Target target=&quot;OTHER&quot;/&gt;
+                    &lt;L7p:VariablePrefix stringValue=&quot;serviceurl&quot;/&gt;
+                &lt;/L7p:EvaluateJsonPathExpressionV2&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${serviceurl.result}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;&quot;/&gt;
+                    &lt;L7p:Negate booleanValue=&quot;true&quot;/&gt;
+                    &lt;L7p:Operator operator=&quot;EMPTY&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:Negated booleanValue=&quot;true&quot;/&gt;
+                            &lt;L7p:Operator operator=&quot;EMPTY&quot;/&gt;
+                            &lt;L7p:RightValue stringValue=&quot;&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                            &lt;L7p:value stringValue=&quot;Serviceurl&quot;/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:EvaluateJsonPathExpressionV2&gt;
+                    &lt;L7p:Expression stringValue=&quot;$.serviceport&quot;/&gt;
+                    &lt;L7p:OtherTargetMessageVariable stringValue=&quot;configuration&quot;/&gt;
+                    &lt;L7p:Target target=&quot;OTHER&quot;/&gt;
+                    &lt;L7p:VariablePrefix stringValue=&quot;serviceport&quot;/&gt;
+                &lt;/L7p:EvaluateJsonPathExpressionV2&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${serviceport.result}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;&quot;/&gt;
+                    &lt;L7p:Negate booleanValue=&quot;true&quot;/&gt;
+                    &lt;L7p:Operator operator=&quot;EMPTY&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:Negated booleanValue=&quot;true&quot;/&gt;
+                            &lt;L7p:Operator operator=&quot;EMPTY&quot;/&gt;
+                            &lt;L7p:RightValue stringValue=&quot;&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                            &lt;L7p:value stringValue=&quot;Serviceport&quot;/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue=&quot;JHtzZXJ2aWNldXJsLnJlc3VsdH06JHtzZXJ2aWNlcG9ydC5yZXN1bHR9&quot;/&gt;
+                &lt;L7p:VariableToSet stringValue=&quot;servicehost&quot;/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:EvaluateJsonPathExpressionV2&gt;
+                    &lt;L7p:Expression stringValue=&quot;$.mytestserviceurl&quot;/&gt;
+                    &lt;L7p:OtherTargetMessageVariable stringValue=&quot;configuration&quot;/&gt;
+                    &lt;L7p:Target target=&quot;OTHER&quot;/&gt;
+                    &lt;L7p:VariablePrefix stringValue=&quot;mytestserviceurl&quot;/&gt;
+                &lt;/L7p:EvaluateJsonPathExpressionV2&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${mytestserviceurl.result}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;&quot;/&gt;
+                    &lt;L7p:Negate booleanValue=&quot;true&quot;/&gt;
+                    &lt;L7p:Operator operator=&quot;EMPTY&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:Negated booleanValue=&quot;true&quot;/&gt;
+                            &lt;L7p:Operator operator=&quot;EMPTY&quot;/&gt;
+                            &lt;L7p:RightValue stringValue=&quot;&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                            &lt;L7p:value stringValue=&quot;mytestservice url&quot;/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:EvaluateJsonPathExpressionV2&gt;
+                    &lt;L7p:Expression stringValue=&quot;$.myxmlserviceurl&quot;/&gt;
+                    &lt;L7p:OtherTargetMessageVariable stringValue=&quot;configuration&quot;/&gt;
+                    &lt;L7p:Target target=&quot;OTHER&quot;/&gt;
+                    &lt;L7p:VariablePrefix stringValue=&quot;myxmlserviceurl&quot;/&gt;
+                &lt;/L7p:EvaluateJsonPathExpressionV2&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${myxmlserviceurl.result}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;&quot;/&gt;
+                    &lt;L7p:Negate booleanValue=&quot;true&quot;/&gt;
+                    &lt;L7p:Operator operator=&quot;EMPTY&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:Negated booleanValue=&quot;true&quot;/&gt;
+                            &lt;L7p:Operator operator=&quot;EMPTY&quot;/&gt;
+                            &lt;L7p:RightValue stringValue=&quot;&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:assertionComment&gt;
+                    &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                        &lt;L7p:entry&gt;
+                            &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                            &lt;L7p:value stringValue=&quot;myxmlservice url&quot;/&gt;
+                        &lt;/L7p:entry&gt;
+                    &lt;/L7p:Properties&gt;
+                &lt;/L7p:assertionComment&gt;
+            &lt;/wsp:All&gt;
+            &lt;L7p:assertionComment&gt;
+                &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                        &lt;L7p:value stringValue=&quot;configuration&quot;/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Properties&gt;
+            &lt;/L7p:assertionComment&gt;
+        &lt;/wsp:All&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Policy>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>Pre-Processing Log</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd1000</l7:Id>
+                    <l7:Type>POLICY</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.994Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Policy guid="041c5b48-176d-4a2e-9a42-635193df1a15" id="2af6a6380fe08d3c626aad4851cd1000" version="0">
+                            <l7:PolicyDetail folderId="2af6a6380fe08d3c626aad4851cd0263" guid="041c5b48-176d-4a2e-9a42-635193df1a15" id="2af6a6380fe08d3c626aad4851cd1000" version="0">
+                                <l7:Name>Pre-Processing Log</l7:Name>
+                                <l7:PolicyType>Include</l7:PolicyType>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="revision">
+                                        <l7:LongValue>1</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:PolicyDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Policy Fragment: Pre-Processing Log&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;##### REQUIRED VARIABLES: a, b, c, d, ...&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:AuditDetailAssertion&gt;
+            &lt;L7p:Detail stringValue=&quot;header=${request.http.allheadervalues} method=${request.http.method} path=${request.url.path} query=${request.url.query} src_ip=${request.tcp.remoteIP} trid=${transactionid} body=${request.mainpart}&quot;/&gt;
+        &lt;/L7p:AuditDetailAssertion&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Policy>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>schemavalidation</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd10ae</l7:Id>
+                    <l7:Type>POLICY</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.996Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Policy guid="e052efe8-d18c-425d-add9-2d5f342dbb03" id="2af6a6380fe08d3c626aad4851cd10ae" version="0">
+                            <l7:PolicyDetail folderId="2af6a6380fe08d3c626aad4851cd0263" guid="e052efe8-d18c-425d-add9-2d5f342dbb03" id="2af6a6380fe08d3c626aad4851cd10ae" version="0">
+                                <l7:Name>schemavalidation</l7:Name>
+                                <l7:PolicyType>Include</l7:PolicyType>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="revision">
+                                        <l7:LongValue>1</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:PolicyDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Policy Fragment: schemavalidation&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:AuditDetailAssertion&gt;
+            &lt;L7p:Detail stringValue=&quot;${jsonschemabase64}&quot;/&gt;
+            &lt;L7p:Level stringValue=&quot;WARNING&quot;/&gt;
+        &lt;/L7p:AuditDetailAssertion&gt;
+        &lt;L7p:SetVariable&gt;
+            &lt;L7p:Base64Expression stringValue=&quot;JHtqc29uc2NoZW1hYmFzZTY0fQ==&quot;/&gt;
+            &lt;L7p:VariableToSet stringValue=&quot;jsonschema_encoded&quot;/&gt;
+        &lt;/L7p:SetVariable&gt;
+        &lt;L7p:EncodeDecode&gt;
+            &lt;L7p:SourceVariableName stringValue=&quot;jsonschema_encoded&quot;/&gt;
+            &lt;L7p:TargetDataType variableDataType=&quot;string&quot;/&gt;
+            &lt;L7p:TargetVariableName stringValue=&quot;jsonschema&quot;/&gt;
+            &lt;L7p:TransformType transformType=&quot;BASE64_DECODE&quot;/&gt;
+        &lt;/L7p:EncodeDecode&gt;
+        &lt;L7p:JSONSchema&gt;
+            &lt;L7p:ResourceInfo staticResourceInfo=&quot;included&quot;&gt;
+                &lt;L7p:Document stringValue=&quot;${jsonschema}&quot;/&gt;
+            &lt;/L7p:ResourceInfo&gt;
+        &lt;/L7p:JSONSchema&gt;
+        &lt;L7p:AuditDetailAssertion&gt;
+            &lt;L7p:Detail stringValue=&quot;${jsonschema}&quot;/&gt;
+            &lt;L7p:Level stringValue=&quot;WARNING&quot;/&gt;
+        &lt;/L7p:AuditDetailAssertion&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Policy>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>mymessagereceived</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd1197</l7:Id>
+                    <l7:Type>POLICY</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:03.997Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Policy guid="6ab27100-d041-4d8a-bd48-87e6135a2fa1" id="2af6a6380fe08d3c626aad4851cd1197" version="0">
+                            <l7:PolicyDetail folderId="2af6a6380fe08d3c626aad4851cd0263" guid="6ab27100-d041-4d8a-bd48-87e6135a2fa1" id="2af6a6380fe08d3c626aad4851cd1197" version="0">
+                                <l7:Name>mymessagereceived</l7:Name>
+                                <l7:PolicyType>Global</l7:PolicyType>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="revision">
+                                        <l7:LongValue>1</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="tag">
+                                        <l7:StringValue>message-received</l7:StringValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:PolicyDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Policy Fragment: mymessagereceived&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:AuditDetailAssertion&gt;
+            &lt;L7p:Detail stringValue=&quot;src_ip=&amp;quot;${request.tcp.remoteIP}&amp;quot; path=${request.url.path}&quot;/&gt;
+            &lt;L7p:Level stringValue=&quot;WARNING&quot;/&gt;
+        &lt;/L7p:AuditDetailAssertion&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Policy>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>MyMockService</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd04bd</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:04.016Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Service id="2af6a6380fe08d3c626aad4851cd04bd" version="2">
+                            <l7:ServiceDetail folderId="2af6a6380fe08d3c626aad4851cd0263" id="2af6a6380fe08d3c626aad4851cd04bd" version="2">
+                                <l7:Name>MyMockService</l7:Name>
+                                <l7:Enabled>true</l7:Enabled>
+                                <l7:ServiceMappings>
+                                    <l7:HttpMapping>
+                                        <l7:UrlPattern>/my/mock/service</l7:UrlPattern>
+                                        <l7:Verbs>
+                                            <l7:Verb>GET</l7:Verb>
+                                            <l7:Verb>POST</l7:Verb>
+                                            <l7:Verb>PUT</l7:Verb>
+                                            <l7:Verb>DELETE</l7:Verb>
+                                        </l7:Verbs>
+                                    </l7:HttpMapping>
+                                </l7:ServiceMappings>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>true</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="internal">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="policyRevision">
+                                        <l7:LongValue>1</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="tracingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="wssProcessingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:ServiceDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy" version="1">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;L7p:SslAssertion/&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Basic Policy Logic&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Basic Routing&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Basic Errorhandling / Debugging&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:Include&gt;
+            &lt;L7p:PolicyGuid stringValue=&quot;42ba4571-280e-49fd-83c7-113599f52f67&quot;/&gt;
+        &lt;/L7p:Include&gt;
+        &lt;L7p:Include&gt;
+            &lt;L7p:PolicyGuid stringValue=&quot;21f52f72-1809-4105-9379-55fd6c09964b&quot;/&gt;
+        &lt;/L7p:Include&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Basic Audits&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:AuditAssertion&gt;
+            &lt;L7p:SaveRequest booleanValue=&quot;true&quot;/&gt;
+            &lt;L7p:SaveResponse booleanValue=&quot;true&quot;/&gt;
+        &lt;/L7p:AuditAssertion&gt;
+        &lt;L7p:AuditDetailAssertion&gt;
+            &lt;L7p:Detail stringValueReference=&quot;inline&quot;&gt;&lt;![CDATA[Query: ${request.url.query}
+Path: ${request.url.path}]]&gt;&lt;/L7p:Detail&gt;
+        &lt;/L7p:AuditDetailAssertion&gt;
+        &lt;wsp:OneOrMore wsp:Usage=&quot;Required&quot;&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${request.http.method}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;GET&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:RightValue stringValue=&quot;GET&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${request.http.method}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;POST&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:RightValue stringValue=&quot;POST&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:CustomizeErrorResponse&gt;
+                    &lt;L7p:Content stringValueReference=&quot;inline&quot;&gt;&lt;![CDATA[{
+  &quot;error&quot;:&quot;Wrong content type&quot;
+}]]&gt;&lt;/L7p:Content&gt;
+                    &lt;L7p:ContentType stringValue=&quot;application/json; charset=UTF-8&quot;/&gt;
+                    &lt;L7p:ExtraHeaders nameValuePairArray=&quot;included&quot;/&gt;
+                    &lt;L7p:HttpStatus stringValue=&quot;400&quot;/&gt;
+                &lt;/L7p:CustomizeErrorResponse&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${request.http.header.content-type}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;application/json&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:RightValue stringValue=&quot;application/json&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:CustomizeErrorResponse&gt;
+                    &lt;L7p:Content stringValueReference=&quot;inline&quot;&gt;&lt;![CDATA[{
+  &quot;error&quot;:&quot;Internal Error&quot;
+}]]&gt;&lt;/L7p:Content&gt;
+                    &lt;L7p:ContentType stringValue=&quot;application/json; charset=UTF-8&quot;/&gt;
+                    &lt;L7p:ExtraHeaders nameValuePairArray=&quot;included&quot;/&gt;
+                &lt;/L7p:CustomizeErrorResponse&gt;
+                &lt;L7p:EvaluateJsonPathExpressionV2&gt;
+                    &lt;L7p:Expression stringValue=&quot;$.name&quot;/&gt;
+                    &lt;L7p:VariablePrefix stringValue=&quot;name&quot;/&gt;
+                &lt;/L7p:EvaluateJsonPathExpressionV2&gt;
+                &lt;L7p:EvaluateJsonPathExpressionV2&gt;
+                    &lt;L7p:Expression stringValue=&quot;$.role&quot;/&gt;
+                    &lt;L7p:VariablePrefix stringValue=&quot;role&quot;/&gt;
+                &lt;/L7p:EvaluateJsonPathExpressionV2&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue=&quot;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxzb2FwZW52OkVudmVsb3BlIHhtbG5zOnNvYXBlbnY9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIj4NCiAgICA8c29hcGVudjpCb2R5Pg0KCSAgICA8bmFtZT4ke25hbWUucmVzdWx0fTwvbmFtZT4NCgkgICAgPHJvbGU+JHtyb2xlLnJlc3VsdH08L3JvbGU+DQogICAgPC9zb2FwZW52OkJvZHk+DQo8L3NvYXBlbnY6RW52ZWxvcGU+&quot;/&gt;
+                    &lt;L7p:ContentType stringValue=&quot;text/xml; charset=utf-8&quot;/&gt;
+                    &lt;L7p:DataType variableDataType=&quot;message&quot;/&gt;
+                    &lt;L7p:VariableToSet stringValue=&quot;myXMLRequest&quot;/&gt;
+                &lt;/L7p:SetVariable&gt;
+            &lt;/wsp:All&gt;
+        &lt;/wsp:OneOrMore&gt;
+        &lt;wsp:OneOrMore wsp:Usage=&quot;Required&quot;&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${request.url.query}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;?name=Niklas&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:RightValue stringValue=&quot;?name=Niklas&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:HttpRoutingAssertion&gt;
+                    &lt;L7p:FailOnErrorStatus booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:PassthroughHttpAuthentication booleanValue=&quot;true&quot;/&gt;
+                    &lt;L7p:ProtectedServiceUrl stringValue=&quot;https://${servicehost}${mytestserviceurl.result}${request.url.query}&quot;/&gt;
+                    &lt;L7p:ProxyPassword stringValueNull=&quot;null&quot;/&gt;
+                    &lt;L7p:ProxyUsername stringValueNull=&quot;null&quot;/&gt;
+                    &lt;L7p:RequestHeaderRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;Cookie&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;SOAPAction&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                        &lt;/L7p:Rules&gt;
+                    &lt;/L7p:RequestHeaderRules&gt;
+                    &lt;L7p:RequestParamRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;/&gt;
+                    &lt;/L7p:RequestParamRules&gt;
+                    &lt;L7p:ResponseHeaderRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;Set-Cookie&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                        &lt;/L7p:Rules&gt;
+                    &lt;/L7p:ResponseHeaderRules&gt;
+                &lt;/L7p:HttpRoutingAssertion&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${request.url.query}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;?rolecheck=true&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:RightValue stringValue=&quot;?rolecheck=true&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:HttpRoutingAssertion&gt;
+                    &lt;L7p:FailOnErrorStatus booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:PassthroughHttpAuthentication booleanValue=&quot;true&quot;/&gt;
+                    &lt;L7p:ProtectedServiceUrl stringValue=&quot;https://${servicehost}${myxmlserviceurl}&quot;/&gt;
+                    &lt;L7p:ProxyPassword stringValueNull=&quot;null&quot;/&gt;
+                    &lt;L7p:ProxyUsername stringValueNull=&quot;null&quot;/&gt;
+                    &lt;L7p:RequestHeaderRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;Cookie&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;SOAPAction&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                        &lt;/L7p:Rules&gt;
+                    &lt;/L7p:RequestHeaderRules&gt;
+                    &lt;L7p:RequestMsgSrc stringValue=&quot;myXMLRequest&quot;/&gt;
+                    &lt;L7p:RequestParamRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;/&gt;
+                    &lt;/L7p:RequestParamRules&gt;
+                    &lt;L7p:ResponseHeaderRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;Set-Cookie&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                        &lt;/L7p:Rules&gt;
+                    &lt;/L7p:ResponseHeaderRules&gt;
+                &lt;/L7p:HttpRoutingAssertion&gt;
+                &lt;L7p:JsonTransformation&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:RootTagString stringValue=&quot;&quot;/&gt;
+                &lt;/L7p:JsonTransformation&gt;
+                &lt;L7p:ResponseXpathAssertion&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:VariablePrefix stringValue=&quot;xmlattributesnode&quot;/&gt;
+                    &lt;L7p:XpathExpression xpathExpressionValue=&quot;included&quot;&gt;
+                        &lt;L7p:Expression stringValue=&quot;/soapenv:Envelope/soapenv:Body/attributes/text&quot;/&gt;
+                        &lt;L7p:Namespaces mapValue=&quot;included&quot;&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue=&quot;s&quot;/&gt;
+                                &lt;L7p:value stringValue=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;/&gt;
+                            &lt;/L7p:entry&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue=&quot;soapenv&quot;/&gt;
+                                &lt;L7p:value stringValue=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;/&gt;
+                            &lt;/L7p:entry&gt;
+                        &lt;/L7p:Namespaces&gt;
+                        &lt;L7p:XpathVersion xpathVersion=&quot;XPATH_1_0&quot;/&gt;
+                    &lt;/L7p:XpathExpression&gt;
+                &lt;/L7p:ResponseXpathAssertion&gt;
+                &lt;L7p:AuditDetailAssertion&gt;
+                    &lt;L7p:Detail stringValue=&quot;XMLAttributes: ${xmlattributesnode.results}&quot;/&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                &lt;/L7p:AuditDetailAssertion&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue=&quot;&quot;/&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:VariableToSet stringValue=&quot;myresponse&quot;/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;wsp:All L7p:Enabled=&quot;false&quot; wsp:Usage=&quot;Required&quot;&gt;
+                    &lt;L7p:SetVariable&gt;
+                        &lt;L7p:Base64Expression stringValue=&quot;ew0KICAiJHt4bWxhdHRyaWJ1dGVzbm9kZS5yZXN1bHRzWzBdfSI6IiR7eG1sYXR0cmlidXRlc25vZGUucmVzdWx0c1sxXX0iLA0KICAiJHt4bWxhdHRyaWJ1dGVzbm9kZS5yZXN1bHRzWzJdfSI6IiR7eG1sYXR0cmlidXRlc25vZGUucmVzdWx0c1szXX0iCQ0KfQ==&quot;/&gt;
+                        &lt;L7p:ContentType stringValue=&quot;application/json; charset=utf-8&quot;/&gt;
+                        &lt;L7p:DataType variableDataType=&quot;message&quot;/&gt;
+                        &lt;L7p:VariableToSet stringValue=&quot;response&quot;/&gt;
+                    &lt;/L7p:SetVariable&gt;
+                    &lt;L7p:assertionComment&gt;
+                        &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                                &lt;L7p:value stringValue=&quot;static coding&quot;/&gt;
+                            &lt;/L7p:entry&gt;
+                        &lt;/L7p:Properties&gt;
+                    &lt;/L7p:assertionComment&gt;
+                &lt;/wsp:All&gt;
+                &lt;wsp:All L7p:Enabled=&quot;false&quot; wsp:Usage=&quot;Required&quot;&gt;
+                    &lt;L7p:ForEachLoop L7p:Usage=&quot;Required&quot;
+                        iterationLimit=&quot;5&quot;
+                        loopVariable=&quot;xmlattributesnode.results&quot; variablePrefix=&quot;currenttextnode&quot;&gt;
+                        &lt;L7p:SetVariable&gt;
+                            &lt;L7p:Base64Expression stringValue=&quot;IiR7Y3VycmVudHRleHRub2RlLmN1cnJlbnR9Ig==&quot;/&gt;
+                            &lt;L7p:VariableToSet stringValue=&quot;myresponse&quot;/&gt;
+                        &lt;/L7p:SetVariable&gt;
+                    &lt;/L7p:ForEachLoop&gt;
+                    &lt;L7p:assertionComment&gt;
+                        &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                                &lt;L7p:value stringValue=&quot;dynamic coding&quot;/&gt;
+                            &lt;/L7p:entry&gt;
+                        &lt;/L7p:Properties&gt;
+                    &lt;/L7p:assertionComment&gt;
+                &lt;/wsp:All&gt;
+                &lt;L7p:HardcodedResponse&gt;
+                    &lt;L7p:Base64ResponseBody stringValue=&quot;JHtteXJlc3BvbnNlfQ==&quot;/&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:ResponseContentType stringValue=&quot;text/plain; charset=UTF-8&quot;/&gt;
+                &lt;/L7p:HardcodedResponse&gt;
+            &lt;/wsp:All&gt;
+        &lt;/wsp:OneOrMore&gt;
+        &lt;L7p:AuditDetailAssertion&gt;
+            &lt;L7p:Detail stringValue=&quot;Reponse: A response&quot;/&gt;
+        &lt;/L7p:AuditDetailAssertion&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Service>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>Copy of MyMockService</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd0d2f</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:04.037Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Service id="2af6a6380fe08d3c626aad4851cd0d2f" version="2">
+                            <l7:ServiceDetail folderId="2af6a6380fe08d3c626aad4851cd0263" id="2af6a6380fe08d3c626aad4851cd0d2f" version="2">
+                                <l7:Name>Copy of MyMockService</l7:Name>
+                                <l7:Enabled>true</l7:Enabled>
+                                <l7:ServiceMappings>
+                                    <l7:HttpMapping>
+                                        <l7:UrlPattern>/my/mock/servicecopy</l7:UrlPattern>
+                                        <l7:Verbs>
+                                            <l7:Verb>GET</l7:Verb>
+                                            <l7:Verb>POST</l7:Verb>
+                                            <l7:Verb>PUT</l7:Verb>
+                                            <l7:Verb>DELETE</l7:Verb>
+                                        </l7:Verbs>
+                                    </l7:HttpMapping>
+                                </l7:ServiceMappings>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>true</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="internal">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="policyRevision">
+                                        <l7:LongValue>1</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="tracingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="wssProcessingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:ServiceDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy" version="1">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;L7p:SslAssertion/&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Basic Policy Logic&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Basic Routing&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:Include&gt;
+            &lt;L7p:PolicyGuid stringValue=&quot;42ba4571-280e-49fd-83c7-113599f52f67&quot;/&gt;
+        &lt;/L7p:Include&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Basic Errorhandling / Debugging&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:Include&gt;
+            &lt;L7p:PolicyGuid stringValue=&quot;21f52f72-1809-4105-9379-55fd6c09964b&quot;/&gt;
+        &lt;/L7p:Include&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;Basic Audits&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:AuditAssertion&gt;
+            &lt;L7p:SaveRequest booleanValue=&quot;true&quot;/&gt;
+            &lt;L7p:SaveResponse booleanValue=&quot;true&quot;/&gt;
+        &lt;/L7p:AuditAssertion&gt;
+        &lt;L7p:AuditDetailAssertion&gt;
+            &lt;L7p:Detail stringValueReference=&quot;inline&quot;&gt;&lt;![CDATA[Query: ${request.url.query}
+Path: ${request.url.path}]]&gt;&lt;/L7p:Detail&gt;
+        &lt;/L7p:AuditDetailAssertion&gt;
+        &lt;wsp:OneOrMore wsp:Usage=&quot;Required&quot;&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${request.http.method}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;GET&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:RightValue stringValue=&quot;GET&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${request.http.method}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;POST&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:RightValue stringValue=&quot;POST&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:CustomizeErrorResponse&gt;
+                    &lt;L7p:Content stringValueReference=&quot;inline&quot;&gt;&lt;![CDATA[{
+  &quot;error&quot;:&quot;Wrong content type&quot;
+}]]&gt;&lt;/L7p:Content&gt;
+                    &lt;L7p:ContentType stringValue=&quot;application/json; charset=UTF-8&quot;/&gt;
+                    &lt;L7p:ExtraHeaders nameValuePairArray=&quot;included&quot;/&gt;
+                    &lt;L7p:HttpStatus stringValue=&quot;400&quot;/&gt;
+                &lt;/L7p:CustomizeErrorResponse&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${request.http.header.content-type}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;application/json&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:RightValue stringValue=&quot;application/json&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:CustomizeErrorResponse&gt;
+                    &lt;L7p:Content stringValueReference=&quot;inline&quot;&gt;&lt;![CDATA[{
+  &quot;error&quot;:&quot;Internal Error&quot;
+}]]&gt;&lt;/L7p:Content&gt;
+                    &lt;L7p:ContentType stringValue=&quot;application/json; charset=UTF-8&quot;/&gt;
+                    &lt;L7p:ExtraHeaders nameValuePairArray=&quot;included&quot;/&gt;
+                &lt;/L7p:CustomizeErrorResponse&gt;
+                &lt;L7p:EvaluateJsonPathExpressionV2&gt;
+                    &lt;L7p:Expression stringValue=&quot;$.name&quot;/&gt;
+                    &lt;L7p:VariablePrefix stringValue=&quot;name&quot;/&gt;
+                &lt;/L7p:EvaluateJsonPathExpressionV2&gt;
+                &lt;L7p:EvaluateJsonPathExpressionV2&gt;
+                    &lt;L7p:Expression stringValue=&quot;$.role&quot;/&gt;
+                    &lt;L7p:VariablePrefix stringValue=&quot;role&quot;/&gt;
+                &lt;/L7p:EvaluateJsonPathExpressionV2&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue=&quot;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxzb2FwZW52OkVudmVsb3BlIHhtbG5zOnNvYXBlbnY9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIj4NCiAgICA8c29hcGVudjpCb2R5Pg0KCSAgICA8bmFtZT4ke25hbWUucmVzdWx0fTwvbmFtZT4NCgkgICAgPHJvbGU+JHtyb2xlLnJlc3VsdH08L3JvbGU+DQogICAgPC9zb2FwZW52OkJvZHk+DQo8L3NvYXBlbnY6RW52ZWxvcGU+&quot;/&gt;
+                    &lt;L7p:ContentType stringValue=&quot;text/xml; charset=utf-8&quot;/&gt;
+                    &lt;L7p:DataType variableDataType=&quot;message&quot;/&gt;
+                    &lt;L7p:VariableToSet stringValue=&quot;myXMLRequest&quot;/&gt;
+                &lt;/L7p:SetVariable&gt;
+            &lt;/wsp:All&gt;
+        &lt;/wsp:OneOrMore&gt;
+        &lt;wsp:OneOrMore wsp:Usage=&quot;Required&quot;&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${request.url.query}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;?name=Niklas&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:RightValue stringValue=&quot;?name=Niklas&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:HttpRoutingAssertion&gt;
+                    &lt;L7p:FailOnErrorStatus booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:PassthroughHttpAuthentication booleanValue=&quot;true&quot;/&gt;
+                    &lt;L7p:ProtectedServiceUrl stringValue=&quot;https://${servicehost}${mytestserviceurl.result}${request.url.query}&quot;/&gt;
+                    &lt;L7p:ProxyPassword stringValueNull=&quot;null&quot;/&gt;
+                    &lt;L7p:ProxyUsername stringValueNull=&quot;null&quot;/&gt;
+                    &lt;L7p:RequestHeaderRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;Cookie&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;SOAPAction&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                        &lt;/L7p:Rules&gt;
+                    &lt;/L7p:RequestHeaderRules&gt;
+                    &lt;L7p:RequestParamRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;/&gt;
+                    &lt;/L7p:RequestParamRules&gt;
+                    &lt;L7p:ResponseHeaderRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;Set-Cookie&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                        &lt;/L7p:Rules&gt;
+                    &lt;/L7p:ResponseHeaderRules&gt;
+                &lt;/L7p:HttpRoutingAssertion&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue=&quot;${request.url.query}&quot;/&gt;
+                    &lt;L7p:Expression2 stringValue=&quot;?rolecheck=true&quot;/&gt;
+                    &lt;L7p:Predicates predicates=&quot;included&quot;&gt;
+                        &lt;L7p:item binary=&quot;included&quot;&gt;
+                            &lt;L7p:RightValue stringValue=&quot;?rolecheck=true&quot;/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:HttpRoutingAssertion&gt;
+                    &lt;L7p:FailOnErrorStatus booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:PassthroughHttpAuthentication booleanValue=&quot;true&quot;/&gt;
+                    &lt;L7p:ProtectedServiceUrl stringValue=&quot;https://${servicehost}${myxmlserviceurl}&quot;/&gt;
+                    &lt;L7p:ProxyPassword stringValueNull=&quot;null&quot;/&gt;
+                    &lt;L7p:ProxyUsername stringValueNull=&quot;null&quot;/&gt;
+                    &lt;L7p:RequestHeaderRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;Cookie&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;SOAPAction&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                        &lt;/L7p:Rules&gt;
+                    &lt;/L7p:RequestHeaderRules&gt;
+                    &lt;L7p:RequestMsgSrc stringValue=&quot;myXMLRequest&quot;/&gt;
+                    &lt;L7p:RequestParamRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;/&gt;
+                    &lt;/L7p:RequestParamRules&gt;
+                    &lt;L7p:ResponseHeaderRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                        &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                        &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;&gt;
+                            &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                                &lt;L7p:Name stringValue=&quot;Set-Cookie&quot;/&gt;
+                            &lt;/L7p:item&gt;
+                        &lt;/L7p:Rules&gt;
+                    &lt;/L7p:ResponseHeaderRules&gt;
+                &lt;/L7p:HttpRoutingAssertion&gt;
+                &lt;L7p:JsonTransformation&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:RootTagString stringValue=&quot;&quot;/&gt;
+                &lt;/L7p:JsonTransformation&gt;
+                &lt;L7p:ResponseXpathAssertion&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:VariablePrefix stringValue=&quot;xmlattributesnode&quot;/&gt;
+                    &lt;L7p:XpathExpression xpathExpressionValue=&quot;included&quot;&gt;
+                        &lt;L7p:Expression stringValue=&quot;/soapenv:Envelope/soapenv:Body/attributes/text&quot;/&gt;
+                        &lt;L7p:Namespaces mapValue=&quot;included&quot;&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue=&quot;s&quot;/&gt;
+                                &lt;L7p:value stringValue=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;/&gt;
+                            &lt;/L7p:entry&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue=&quot;soapenv&quot;/&gt;
+                                &lt;L7p:value stringValue=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;/&gt;
+                            &lt;/L7p:entry&gt;
+                        &lt;/L7p:Namespaces&gt;
+                        &lt;L7p:XpathVersion xpathVersion=&quot;XPATH_1_0&quot;/&gt;
+                    &lt;/L7p:XpathExpression&gt;
+                &lt;/L7p:ResponseXpathAssertion&gt;
+                &lt;L7p:AuditDetailAssertion&gt;
+                    &lt;L7p:Detail stringValue=&quot;XMLAttributes: ${xmlattributesnode.results}&quot;/&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                &lt;/L7p:AuditDetailAssertion&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue=&quot;&quot;/&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:VariableToSet stringValue=&quot;myresponse&quot;/&gt;
+                &lt;/L7p:SetVariable&gt;
+                &lt;wsp:All L7p:Enabled=&quot;false&quot; wsp:Usage=&quot;Required&quot;&gt;
+                    &lt;L7p:SetVariable&gt;
+                        &lt;L7p:Base64Expression stringValue=&quot;ew0KICAiJHt4bWxhdHRyaWJ1dGVzbm9kZS5yZXN1bHRzWzBdfSI6IiR7eG1sYXR0cmlidXRlc25vZGUucmVzdWx0c1sxXX0iLA0KICAiJHt4bWxhdHRyaWJ1dGVzbm9kZS5yZXN1bHRzWzJdfSI6IiR7eG1sYXR0cmlidXRlc25vZGUucmVzdWx0c1szXX0iCQ0KfQ==&quot;/&gt;
+                        &lt;L7p:ContentType stringValue=&quot;application/json; charset=utf-8&quot;/&gt;
+                        &lt;L7p:DataType variableDataType=&quot;message&quot;/&gt;
+                        &lt;L7p:VariableToSet stringValue=&quot;response&quot;/&gt;
+                    &lt;/L7p:SetVariable&gt;
+                    &lt;L7p:assertionComment&gt;
+                        &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                                &lt;L7p:value stringValue=&quot;static coding&quot;/&gt;
+                            &lt;/L7p:entry&gt;
+                        &lt;/L7p:Properties&gt;
+                    &lt;/L7p:assertionComment&gt;
+                &lt;/wsp:All&gt;
+                &lt;wsp:All L7p:Enabled=&quot;false&quot; wsp:Usage=&quot;Required&quot;&gt;
+                    &lt;L7p:ForEachLoop L7p:Usage=&quot;Required&quot;
+                        iterationLimit=&quot;5&quot;
+                        loopVariable=&quot;xmlattributesnode.results&quot; variablePrefix=&quot;currenttextnode&quot;&gt;
+                        &lt;L7p:SetVariable&gt;
+                            &lt;L7p:Base64Expression stringValue=&quot;IiR7Y3VycmVudHRleHRub2RlLmN1cnJlbnR9Ig==&quot;/&gt;
+                            &lt;L7p:VariableToSet stringValue=&quot;myresponse&quot;/&gt;
+                        &lt;/L7p:SetVariable&gt;
+                    &lt;/L7p:ForEachLoop&gt;
+                    &lt;L7p:assertionComment&gt;
+                        &lt;L7p:Properties mapValue=&quot;included&quot;&gt;
+                            &lt;L7p:entry&gt;
+                                &lt;L7p:key stringValue=&quot;RIGHT.COMMENT&quot;/&gt;
+                                &lt;L7p:value stringValue=&quot;dynamic coding&quot;/&gt;
+                            &lt;/L7p:entry&gt;
+                        &lt;/L7p:Properties&gt;
+                    &lt;/L7p:assertionComment&gt;
+                &lt;/wsp:All&gt;
+                &lt;L7p:HardcodedResponse&gt;
+                    &lt;L7p:Base64ResponseBody stringValue=&quot;JHtteXJlc3BvbnNlfQ==&quot;/&gt;
+                    &lt;L7p:Enabled booleanValue=&quot;false&quot;/&gt;
+                    &lt;L7p:ResponseContentType stringValue=&quot;text/plain; charset=UTF-8&quot;/&gt;
+                &lt;/L7p:HardcodedResponse&gt;
+            &lt;/wsp:All&gt;
+        &lt;/wsp:OneOrMore&gt;
+        &lt;L7p:AuditDetailAssertion&gt;
+            &lt;L7p:Detail stringValue=&quot;Reponse: A response&quot;/&gt;
+        &lt;/L7p:AuditDetailAssertion&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Service>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>admin</l7:Name>
+                    <l7:Id>00000000000000000000000000000003</l7:Id>
+                    <l7:Type>USER</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:04.055Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:User providerId="0000000000000000fffffffffffffffe" id="00000000000000000000000000000003">
+                            <l7:Login>admin</l7:Login>
+                            <l7:FirstName></l7:FirstName>
+                            <l7:LastName></l7:LastName>
+                            <l7:Email></l7:Email>
+                            <l7:Properties>
+                                <l7:Property key="accountExpiration">
+                                    <l7:LongValue>-1</l7:LongValue>
+                                </l7:Property>
+                                <l7:Property key="enabled">
+                                    <l7:BooleanValue>true</l7:BooleanValue>
+                                </l7:Property>
+                                <l7:Property key="name">
+                                    <l7:StringValue>admin</l7:StringValue>
+                                </l7:Property>
+                            </l7:Properties>
+                        </l7:User>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>jsonvalidation</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd111e</l7:Id>
+                    <l7:Type>ENCAPSULATED_ASSERTION</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:04.057Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:EncapsulatedAssertion id="2af6a6380fe08d3c626aad4851cd111e" version="0">
+                            <l7:Name>jsonvalidation</l7:Name>
+                            <l7:Guid>98eb40ea-ab30-4df0-bc98-6513870b4e7f</l7:Guid>
+                            <l7:PolicyReference id="2af6a6380fe08d3c626aad4851cd10ae" resourceUri="http://ns.l7tech.com/2010/04/gateway-management/policies"/>
+                            <l7:EncapsulatedArguments>
+                                <l7:EncapsulatedAssertionArgument>
+                                    <l7:Ordinal>1</l7:Ordinal>
+                                    <l7:ArgumentName>jsonschemabase64</l7:ArgumentName>
+                                    <l7:ArgumentType>string</l7:ArgumentType>
+                                    <l7:GuiLabel>jsonschemabase64</l7:GuiLabel>
+                                    <l7:GuiPrompt>true</l7:GuiPrompt>
+                                </l7:EncapsulatedAssertionArgument>
+                            </l7:EncapsulatedArguments>
+                            <l7:EncapsulatedResults>
+                                <l7:EncapsulatedAssertionResult>
+                                    <l7:ResultName>jsonschema.failure</l7:ResultName>
+                                    <l7:ResultType>string</l7:ResultType>
+                                </l7:EncapsulatedAssertionResult>
+                            </l7:EncapsulatedResults>
+                            <l7:Properties>
+                                <l7:Property key="allowTracing">
+                                    <l7:StringValue>false</l7:StringValue>
+                                </l7:Property>
+                                <l7:Property key="description">
+                                    <l7:StringValue>This decodes a provided jsonschema from base64 and validates a request</l7:StringValue>
+                                </l7:Property>
+                                <l7:Property key="paletteFolder">
+                                    <l7:StringValue>customAssertions</l7:StringValue>
+                                </l7:Property>
+                                <l7:Property key="passMetricsToParent">
+                                    <l7:StringValue>false</l7:StringValue>
+                                </l7:Property>
+                                <l7:Property key="policyGuid">
+                                    <l7:StringValue>e052efe8-d18c-425d-add9-2d5f342dbb03</l7:StringValue>
+                                </l7:Property>
+                            </l7:Properties>
+                        </l7:EncapsulatedAssertion>
+                    </l7:Resource>
+                </l7:Item>
+                <l7:Item>
+                    <l7:Name>randomservice</l7:Name>
+                    <l7:Id>2af6a6380fe08d3c626aad4851cd1035</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                    <l7:TimeStamp>2022-07-24T11:01:04.068Z</l7:TimeStamp>
+                    <l7:Resource>
+                        <l7:Service id="2af6a6380fe08d3c626aad4851cd1035" version="2">
+                            <l7:ServiceDetail folderId="2af6a6380fe08d3c626aad4851cd0263" id="2af6a6380fe08d3c626aad4851cd1035" version="2">
+                                <l7:Name>randomservice</l7:Name>
+                                <l7:Enabled>true</l7:Enabled>
+                                <l7:ServiceMappings>
+                                    <l7:HttpMapping>
+                                        <l7:UrlPattern>/randomservice</l7:UrlPattern>
+                                        <l7:Verbs>
+                                            <l7:Verb>GET</l7:Verb>
+                                            <l7:Verb>POST</l7:Verb>
+                                            <l7:Verb>PUT</l7:Verb>
+                                            <l7:Verb>DELETE</l7:Verb>
+                                        </l7:Verbs>
+                                    </l7:HttpMapping>
+                                </l7:ServiceMappings>
+                                <l7:Properties>
+                                    <l7:Property key="hasRouting">
+                                        <l7:BooleanValue>true</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="internal">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="policyRevision">
+                                        <l7:LongValue>1</l7:LongValue>
+                                    </l7:Property>
+                                    <l7:Property key="soap">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="tracingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                    <l7:Property key="wssProcessingEnabled">
+                                        <l7:BooleanValue>false</l7:BooleanValue>
+                                    </l7:Property>
+                                </l7:Properties>
+                            </l7:ServiceDetail>
+                            <l7:Resources>
+                                <l7:ResourceSet tag="policy">
+                                    <l7:Resource type="policy" version="0">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;wsp:Policy xmlns:L7p=&quot;http://www.layer7tech.com/ws/policy&quot; xmlns:wsp=&quot;http://schemas.xmlsoap.org/ws/2002/12/policy&quot;&gt;
+    &lt;wsp:All wsp:Usage=&quot;Required&quot;&gt;
+        &lt;L7p:SslAssertion/&gt;
+        &lt;L7p:HttpBasic/&gt;
+        &lt;L7p:SpecificUser&gt;
+            &lt;L7p:IdentityProviderOid goidValue=&quot;0000000000000000fffffffffffffffe&quot;/&gt;
+            &lt;L7p:UserLogin stringValue=&quot;nbreuer&quot;/&gt;
+            &lt;L7p:UserName stringValue=&quot;nbreuer&quot;/&gt;
+            &lt;L7p:UserUid stringValue=&quot;00000000000000000000000000000003&quot;/&gt;
+        &lt;/L7p:SpecificUser&gt;
+        &lt;L7p:Include&gt;
+            &lt;L7p:PolicyGuid stringValue=&quot;21f52f72-1809-4105-9379-55fd6c09964b&quot;/&gt;
+        &lt;/L7p:Include&gt;
+        &lt;L7p:Include&gt;
+            &lt;L7p:PolicyGuid stringValue=&quot;041c5b48-176d-4a2e-9a42-635193df1a15&quot;/&gt;
+        &lt;/L7p:Include&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;PolicyFragment: Request Validation&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:Encapsulated&gt;
+            &lt;L7p:EncapsulatedAssertionConfigGuid stringValue=&quot;98eb40ea-ab30-4df0-bc98-6513870b4e7f&quot;/&gt;
+            &lt;L7p:EncapsulatedAssertionConfigName stringValue=&quot;jsonvalidation&quot;/&gt;
+            &lt;L7p:Parameters mapValue=&quot;included&quot;&gt;
+                &lt;L7p:entry&gt;
+                    &lt;L7p:key stringValue=&quot;jsonschemabase64&quot;/&gt;
+                    &lt;L7p:value stringValue=&quot;ew0KICAiJHNjaGVtYSI6ICJodHRwOi8vanNvbi1zY2hlbWEub3JnL2RyYWZ0LTA0L3NjaGVtYSMiLA0KICAidHlwZSI6ICJvYmplY3QiLA0KICAicHJvcGVydGllcyI6IHsNCiAgICAibmFtZSI6IHsNCiAgICAgICJ0eXBlIjogInN0cmluZyINCiAgICB9LA0KICAgICJyb2xlIjogew0KICAgICAgInR5cGUiOiAic3RyaW5nIg0KICAgIH0NCiAgfSwNCiAgInJlcXVpcmVkIjogWw0KICAgICJuYW1lIiwNCiAgICAicm9sZSINCiAgXQ0KfQ &quot;/&gt;
+                &lt;/L7p:entry&gt;
+            &lt;/L7p:Parameters&gt;
+        &lt;/L7p:Encapsulated&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;PolicyFragment: Pre-Routing&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:HttpRoutingAssertion&gt;
+            &lt;L7p:FailOnErrorStatus booleanValue=&quot;false&quot;/&gt;
+            &lt;L7p:KeyAlias stringValue=&quot;ssl&quot;/&gt;
+            &lt;L7p:NonDefaultKeystoreId goidValue=&quot;00000000000000000000000000000002&quot;/&gt;
+            &lt;L7p:PassthroughHttpAuthentication booleanValue=&quot;true&quot;/&gt;
+            &lt;L7p:ProtectedServiceUrl stringValue=&quot;https://${servicehost2}${mytestserviceurl2.result}${request.url.query}&quot;/&gt;
+            &lt;L7p:ProxyPassword stringValueNull=&quot;null&quot;/&gt;
+            &lt;L7p:ProxyUsername stringValueNull=&quot;null&quot;/&gt;
+            &lt;L7p:RequestHeaderRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;&gt;
+                    &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                        &lt;L7p:Name stringValue=&quot;Cookie&quot;/&gt;
+                    &lt;/L7p:item&gt;
+                    &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                        &lt;L7p:Name stringValue=&quot;SOAPAction&quot;/&gt;
+                    &lt;/L7p:item&gt;
+                &lt;/L7p:Rules&gt;
+            &lt;/L7p:RequestHeaderRules&gt;
+            &lt;L7p:RequestParamRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;/&gt;
+            &lt;/L7p:RequestParamRules&gt;
+            &lt;L7p:ResponseHeaderRules httpPassthroughRuleSet=&quot;included&quot;&gt;
+                &lt;L7p:ForwardAll booleanValue=&quot;true&quot;/&gt;
+                &lt;L7p:Rules httpPassthroughRules=&quot;included&quot;&gt;
+                    &lt;L7p:item httpPassthroughRule=&quot;included&quot;&gt;
+                        &lt;L7p:Name stringValue=&quot;Set-Cookie&quot;/&gt;
+                    &lt;/L7p:item&gt;
+                &lt;/L7p:Rules&gt;
+            &lt;/L7p:ResponseHeaderRules&gt;
+            &lt;L7p:UsesDefaultKeyStore booleanValue=&quot;false&quot;/&gt;
+        &lt;/L7p:HttpRoutingAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;PolicyFragment: Post-Routing&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;PolicyFragment: ResponseValidation&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue=&quot;PolicyFragment: Post-Processing Log (KPIs)&quot;/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+                                </l7:ResourceSet>
+                            </l7:Resources>
+                        </l7:Service>
+                    </l7:Resource>
+                </l7:Item>
+            </l7:References>
+            <l7:Mappings>
+                <l7:Mapping action="NewOrExisting" srcId="0000000000000000ffffffffffffec76" srcUri="https://14f739f57154:8444/restman/1.0/folders/0000000000000000ffffffffffffec76" type="FOLDER">
+                    <l7:Properties>
+                        <l7:Property key="FailOnNew">
+                            <l7:BooleanValue>true</l7:BooleanValue>
+                        </l7:Property>
+                    </l7:Properties>
+                </l7:Mapping>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd0263" srcUri="https://14f739f57154:8444/restman/1.0/folders/2af6a6380fe08d3c626aad4851cd0263" type="FOLDER"/>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd09fa" srcUri="https://14f739f57154:8444/restman/1.0/folders/2af6a6380fe08d3c626aad4851cd09fa" type="FOLDER"/>
+                <l7:Mapping action="NewOrExisting" srcId="0000000000000000fffffffffffffffe" srcUri="https://14f739f57154:8444/restman/1.0/identityProviders/0000000000000000fffffffffffffffe" type="ID_PROVIDER_CONFIG">
+                    <l7:Properties>
+                        <l7:Property key="FailOnNew">
+                            <l7:BooleanValue>true</l7:BooleanValue>
+                        </l7:Property>
+                    </l7:Properties>
+                </l7:Mapping>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd0329" srcUri="https://14f739f57154:8444/restman/1.0/services/2af6a6380fe08d3c626aad4851cd0329" type="SERVICE"/>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd0a44" srcUri="https://14f739f57154:8444/restman/1.0/services/2af6a6380fe08d3c626aad4851cd0a44" type="SERVICE"/>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd0f84" srcUri="https://14f739f57154:8444/restman/1.0/policies/2af6a6380fe08d3c626aad4851cd0f84" type="POLICY"/>
+                <l7:Mapping action="NewOrExisting" srcId="eb93389fe3802bf099cf9d8cff80e0c8" srcUri="https://14f739f57154:8444/restman/1.0/clusterProperties/eb93389fe3802bf099cf9d8cff80e0c8" type="CLUSTER_PROPERTY">
+                    <l7:Properties>
+                        <l7:Property key="MapBy">
+                            <l7:StringValue>name</l7:StringValue>
+                        </l7:Property>
+                    </l7:Properties>
+                </l7:Mapping>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd0fc9" srcUri="https://14f739f57154:8444/restman/1.0/policies/2af6a6380fe08d3c626aad4851cd0fc9" type="POLICY"/>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd1000" srcUri="https://14f739f57154:8444/restman/1.0/policies/2af6a6380fe08d3c626aad4851cd1000" type="POLICY"/>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd10ae" srcUri="https://14f739f57154:8444/restman/1.0/policies/2af6a6380fe08d3c626aad4851cd10ae" type="POLICY"/>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd1197" srcUri="https://14f739f57154:8444/restman/1.0/policies/2af6a6380fe08d3c626aad4851cd1197" type="POLICY"/>
+                <l7:Mapping action="NewOrExisting" srcId="00000000000000000000000000000002:SSL" srcUri="https://14f739f57154:8444/restman/1.0/privateKeys/00000000000000000000000000000002:SSL" type="SSG_KEY_ENTRY">
+                    <l7:Properties>
+                        <l7:Property key="FailOnNew">
+                            <l7:BooleanValue>true</l7:BooleanValue>
+                        </l7:Property>
+                    </l7:Properties>
+                </l7:Mapping>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd04bd" srcUri="https://14f739f57154:8444/restman/1.0/services/2af6a6380fe08d3c626aad4851cd04bd" type="SERVICE"/>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd0d2f" srcUri="https://14f739f57154:8444/restman/1.0/services/2af6a6380fe08d3c626aad4851cd0d2f" type="SERVICE"/>
+                <l7:Mapping action="NewOrExisting" srcId="00000000000000000000000000000003" srcUri="https://14f739f57154:8444/restman/1.0/identityProviders/0000000000000000fffffffffffffffe/users/00000000000000000000000000000003" type="USER">
+                    <l7:Properties>
+                        <l7:Property key="FailOnNew">
+                            <l7:BooleanValue>true</l7:BooleanValue>
+                        </l7:Property>
+                    </l7:Properties>
+                </l7:Mapping>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd111e" srcUri="https://14f739f57154:8444/restman/1.0/encapsulatedAssertions/2af6a6380fe08d3c626aad4851cd111e" type="ENCAPSULATED_ASSERTION"/>
+                <l7:Mapping action="NewOrExisting" srcId="2af6a6380fe08d3c626aad4851cd1035" srcUri="https://14f739f57154:8444/restman/1.0/services/2af6a6380fe08d3c626aad4851cd1035" type="SERVICE"/>
+            </l7:Mappings>
+        </l7:Bundle>

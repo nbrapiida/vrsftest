@@ -149,6 +149,10 @@
             </L7p:HardcodedResponse>
             <L7p:CommentAssertion>
                 <L7p:Comment stringValue="Ich bin eine Aenderung"/>
+                <L7p:Enabled booleanValue="false"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="Eine zweite Aenderung"/>
             </L7p:CommentAssertion>
         </wsp:All>
     </wsp:Policy>
